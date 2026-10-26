@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>❤️ tenho uma pergunta...</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body {
+    background-image: url("./sosoeric02.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.card {
+    width: 92%;
+    max-width: 400px;
+
+   background: rgba(117, 117, 117, 0);
+
+
+    
+    border-radius: 5px;
+
+    text-align: center;
+    color: #ff006a;
+
+    /* Borda delicada */
+
+
+    
+
+    animation: entrada .8s;
+
+    margin: auto 0;
+}
+/* animacao de entrada */
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* imagem */
+
+img{
+    width:160px;
+    height:160px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    border:5px solid white;
+
+    margin-bottom:20px;
+}
+
+/* textos */
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #ff006a;
+}
+
+h2 {
+    font-size: 21px;
+    color: #e60060;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #444444;
+}
+/* botoes */
+
+
+/* botões fofinhos 💗 */
+
+button {
+    width: 100%;
+    padding: 15px 20px;
+   border: none;
+    border-radius: 50px;
+
+    font-family: Poppins, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+    margin-top: 14px;
+    cursor: pointer;
+
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* botão SIM 💖 */
+
+#sim {
+    background: linear-gradient(
+        135deg,
+        #ff8ec7,
+        #ff4fa0,
+        #ff79b7
+    );
+
+    color: white;
+
+    box-shadow:
+        0 6px 18px rgba(255, 79, 160, 0.35),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+
+    animation: coracao 2s infinite;
+}
+
+#sim:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 10px 25px rgba(255, 79, 160, 0.5),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+#sim:active {
+    transform: scale(0.96);
+}
+
+/* botão AINDA NÃO 🥺 */
+
+#nao {
+    background: rgba(255, 190, 220, 0.952);
+    color: #fff;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+
+  
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+
+}
+
+#nao:hover {
+    background: rgba(255, 190, 220, 0.952);
+
+    transform: translateY(-2px);
+    
+}
+
+#nao:active {
+    transform: scale(0.96);
+}
+
+/* brilho pulsando 💗 */
+
+@keyframes coracao {
+    0%, 100% {
+        box-shadow: 0 6px 18px rgba(255, 79, 160, 0.35);
+    }
+
+    50% {
+        box-shadow: 0 6px 26px rgba(255, 79, 160, 0.65);
+    }
+}
+
+/* acessibilidade: respeita preferência por menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+    #sim {
+        animation: none;
+    }
+
+    button {
+        transition: none;
+    }
+}
+
+
+#resultado{
+    display:none;
+    animation:entrada .5s;
+}
+
+/* canvas do confete */
+
+canvas{
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:10;
+}
+
+/* coracoes */
+
+.heart{
+    position:fixed;
+
+    top:-30px;
+
+    font-size:22px;
+
+    animation:cair linear forwards;
+
+    pointer-events:none;
+
+    z-index:5;
+}
+
+.imagem-resultado{ width:100%; height:auto; max-height:400px; object-fit:cover; border-radius:20px; margin-top:10px; margin-bottom:5px; box-shadow:0 10px 25px rgba(0,0,0,.2); }
+
+@keyframes cair{
+
+    to{
+        transform:translateY(120vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+/* celular */
+
+@media (max-width:600px){
+
+    body{
+        padding:20px 0;
+    }
+
+    .card{
+        width:92%;
+        padding:22px;
+    }
+
+    h1{
+        font-size:26px;
+    }
+
+    h2{
+        font-size:19px;
+    }
+
+    p{
+        font-size:15px;
+        line-height:1.6;
+    }
+
+    button{
+        font-size:17px;
+        padding:15px;
+    }
+
+.imagem-resultado{ max-height:650px;
+     }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="confete"></canvas>
+
+<div class="card">
+
+    <div id="inicio">
+
+        <p>
+
+           mesmo que a gente não se conheça há muito tempo, nesse pouco tempo eu criei sentimentos por você, e eu sinto que seja recíproco, sabe
+<br> <br>
+poxa, eu já te amo tanto, e parece que, quanto mais eu te conheço, mais eu te amo.
+<br>
+eu quero ter algo real com você, sabe? quero que você seja minha namorada e que continue sendo esse amor que você é comigo. eu gosto tanto do seu jeitinho, de como você me trata e de como você me faz feliz
+<br>
+eu te amo muito, Sofia
+
+        </p>
+<br> 
+        <h2 style="margin-bottom:20px;">
+            vc aceita namorar comigo? 💖
+        </h2>
+
+        <button id="sim">
+            💖 sim, quero
+        </button>
+
+        <button id="nao">
+            🥺 ainda não
+        </button>
+
+    </div>
+
+
+    <div id="resultado">
+
+        <h1>
+            eu te amo muito ❤️
+        </h1>
+
+        <h2>
+            pode ter certeza que não vai se arrepender de ter aceitado!
+        </h2>
+
+        <p>
+
+            prometo que nosso namoro vai ser o melhor de todos,
+            quero te amar cada vez mais e te fazer a garota mais feliz
+            do mundo, minha boneca 💖
+
+            <br><br>
+
+<!-- imagem abaixo dos textos -->
+  <img src="./sosoeric01.jpg" alt="nossa foto" class="imagem-resultado" >
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   coracoes caindo
+========================= */
+
+function criarCoracao(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (Math.random() * 4 + 4) + "s";
+
+    heart.style.fontSize =
+        (20 + Math.random() * 25) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+
+}
+
+setInterval(criarCoracao,350);
+
+
+/* =========================
+   botao nao
+========================= */
+
+const nao = document.getElementById("nao");
+
+const frases = [
+
+    "tem certeza? 🥺",
+
+    "pensa mais um pouquinho ❤️",
+
+    "eu espero você 💖",
+
+    "você é muito especial."
+
+];
+
+nao.addEventListener("click", () => {
+
+    const frase =
+        frases[Math.floor(Math.random() * frases.length)];
+
+    nao.innerHTML = frase;
+
+});
+
+
+/* =========================
+   confete
+========================= */
+
+const canvas =
+    document.getElementById("confete");
+
+const ctx =
+    canvas.getContext("2d");
+
+
+function ajustarCanvas(){
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+}
+
+ajustarCanvas();
+
+window.addEventListener("resize", ajustarCanvas);
+
+
+let confetes = [];
+
+
+function criarConfete(){
+
+    for(let i = 0; i < 180; i++){
+
+        confetes.push({
+
+            x:Math.random() * canvas.width,
+
+            y:-20,
+
+            r:Math.random() * 6 + 3,
+
+            dy:Math.random() * 5 + 2,
+
+            dx:(Math.random() - 0.5) * 4,
+
+            c:`hsl(${Math.random() * 360},100%,60%)`
+
+        });
+
+    }
+
+}
+
+
+function animar(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    confetes.forEach((c,index) => {
+
+        ctx.fillStyle = c.c;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            c.x,
+            c.y,
+            c.r,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+        c.y += c.dy;
+
+        c.x += c.dx;
+
+        /* remove confetes que sairam da tela */
+
+        if(c.y > canvas.height + 30){
+
+            confetes.splice(index,1);
+
+        }
+
+    });
+
+    requestAnimationFrame(animar);
+
+}
+
+animar();
+
+
+/* =========================
+   botao sim
+========================= */
+
+document.getElementById("sim").onclick = () => {
+
+    criarConfete();
+
+    document.getElementById("inicio").style.display = "none";
+
+    document.getElementById("resultado").style.display = "block";
+
+};
+
+</script>
+
+</body>
+
+</html>
